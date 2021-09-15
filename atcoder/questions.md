@@ -1,6 +1,8 @@
-# BContest 178
+# Atcoder
 
-## Question D
+## BContest 178
+
+### Question D
 
 ![Question D](178_D.png)
 Nice DP  
@@ -12,15 +14,15 @@ Nice DP
 new formula for calculating max. manhattan dist. between two points.  
 ![Question E ans](178_E_ans.png)
 
-# BContest 218
+## BContest 218
 
-## Question C
+### Question C
 
 [Question C](https://atcoder.jp/contests/abc218/tasks/abc218_c)
 
 Code written:
 
-```c
+```c++
 #include<bits/stdc++.h>
 #define int long long
 using namespace std;
