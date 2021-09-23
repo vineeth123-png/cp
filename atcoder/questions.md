@@ -162,3 +162,11 @@ Unable to find the reason for WA
 [175_D](https://atcoder.jp/contests/abc175/tasks/abc175_d)
 
 Editorial: [A submission](https://atcoder.jp/contests/abc175/submissions/15831678)
+
+## BContest 174
+
+### Question F
+
+[174_F](https://atcoder.jp/contests/abc174/tasks/abc174_f)
+
+Understood about Fenwick tree, but unable to answer the question.
