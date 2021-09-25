@@ -170,3 +170,13 @@ Editorial: [A submission](https://atcoder.jp/contests/abc175/submissions/1583167
 [174_F](https://atcoder.jp/contests/abc174/tasks/abc174_f)
 
 Understood about Fenwick tree, but unable to answer the question.
+
+## BConest M-SOLUTIONS Programming Contest 2020
+
+### Questions E, F
+
+[Que_E](https://atcoder.jp/contests/m-solutions2020/tasks/m_solutions2020_e)
+
+[Que_F](https://atcoder.jp/contests/m-solutions2020/tasks/m_solutions2020_f)
+
+Unable to get intuitions.
