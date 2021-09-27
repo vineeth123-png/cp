@@ -180,3 +180,19 @@ Understood about Fenwick tree, but unable to answer the question.
 [Que_F](https://atcoder.jp/contests/m-solutions2020/tasks/m_solutions2020_f)
 
 Unable to get intuitions.
+
+## BContest AIsing Programming Contest 2020
+
+### Questions E, F
+
+[Que_E](https://atcoder.jp/contests/aising2020/tasks/aising2020_e)
+
+[Que_F](https://atcoder.jp/contests/aising2020/tasks/aising2020_f)
+
+Unable to get intuitions
+
+## BContest 220
+
+### Question E
+
+Unable to get intuition
