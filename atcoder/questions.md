@@ -201,3 +201,12 @@ Unable to get intuition
 ### Questions E, F
 
 [Questions](https://atcoder.jp/contests/abc173/tasks)
+
+## BContest 172
+
+### Questions E, F
+
+[Questions](https://atcoder.jp/contests/abc172/tasks)
+
+Que E: no intuition
+Que F: Game Theory question, no intuition as above
