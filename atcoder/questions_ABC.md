@@ -210,3 +210,9 @@ Unable to get intuition
 
 Que E: no intuition
 Que F: Game Theory question, no intuition as above
+
+## BContest 223
+
+[Questions](https://atcoder.jp/contests/abc223/tasks)
+Que D: Nice topological sort
+[Topological sort](https://leetcode.com/discuss/general-discussion/1078072/introduction-to-topological-sort#)
