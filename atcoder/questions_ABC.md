@@ -216,3 +216,79 @@ Que F: Game Theory question, no intuition as above
 [Questions](https://atcoder.jp/contests/abc223/tasks)   
 Que D: Nice topological sort   
 [Topological sort concept](https://leetcode.com/discuss/general-discussion/1078072/introduction-to-topological-sort#)
+
+## BContest 170
+
+[Questions](https://atcoder.jp/contests/abc224/tasks)   
+Que E: got intuition and code, but WA   
+```
+#include<bits/stdc++.h>
+#define int long long
+using namespace std;
+#define PII pair<int, int>
+#define pub push_back
+#define puf push_front
+#define F first
+#define S second
+#define ld long double
+#define fastIO ios::sync_with_stdio(0); cin.tie(0);
+vector<int> dx = {-1, 1, 0, 0};
+vector<int> dy = {0, 0, -1, 1};
+const int inf = 0x3f3f3f3f;
+int n, m;
+// Fill these!
+bool isValid(int i, int j) {return i>=0 && i<n && j>=0 && j<m;}
+int modpow(int a, int b, int mod) {
+  if(a == 0) return 0;
+  else if(a == 1 || b == 0) return 1;
+  int x = modpow(a, b/2, mod);
+  if(b % 2 == 0) {
+    x = (x*x)%mod;
+  }else {
+    x = (x*x)%mod;
+    x = (x*a)%mod;
+  }
+  return x;
+}
+int32_t main(){
+  //fastIO
+  /*freopen("input.txt", "r", stdin);
+  freopen("output.txt", "w", stdout);*/
+  int n, q; cin>>n>>q;
+  vector<vector<int>> infants(n, vector<int>(2));
+  int nn = 2 * 1e5;
+  vector<map<int, int>> kindergartens(nn);
+  multiset<int> evenness;
+  for(int i = 0; i<n; i++) {
+    cin>>infants[i][0];
+    int b; cin>>b; b--; infants[i][1] = b;
+    kindergartens[b][infants[i][0]]++;
+    evenness.insert(kindergartens[b].rbegin()->first);
+  }
+
+  
+  // <<*evenness.begin()<<"\n";
+
+
+  for(int i = 0; i<q; i++) {
+    int c, d; cin>>c>>d; c--; d--;
+    int curr_k = infants[c][1];
+    bool check = kindergartens[curr_k].rbegin()->first == infants[c][0];
+    kindergartens[curr_k][infants[c][0]]--;
+    if(kindergartens[curr_k][infants[c][0]] == 0) {
+      kindergartens[curr_k].erase(infants[c][0]);
+    }
+    if(!kindergartens[curr_k].empty() && check) {
+      evenness.erase(evenness.find(infants[c][0]));
+      evenness.insert(kindergartens[curr_k].rbegin()->first);
+    } else if(kindergartens[curr_k].empty()) evenness.erase(evenness.find(infants[c][0]));
+    infants[c][1] = d;
+    if(!kindergartens[d].empty()) evenness.erase(evenness.find(kindergartens[d].rbegin()->first));
+    kindergartens[d][infants[c][0]]++;
+    evenness.insert(kindergartens[d].rbegin()->first);
+    cout<<*evenness.begin()<<"\n";
+  }
+  return 0;
+}
+```
+Que F, no intuition
