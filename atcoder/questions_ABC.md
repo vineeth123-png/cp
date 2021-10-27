@@ -322,3 +322,4 @@ int32_t main(){
 }
 ```
 Question E: understood by editorial, great intuition.
+Question F: no intuition
