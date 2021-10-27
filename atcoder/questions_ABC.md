@@ -292,3 +292,33 @@ int32_t main(){
 }
 ```
 Que F, no intuition
+
+## BContest 169
+
+[Questions](https://atcoder.jp/contests/abc169/tasks)  
+Question D: Got intuition, but not correct; unable to find bug  
+Code:  
+```
+int32_t main(){
+  //fastIO
+  /*freopen("input.txt", "r", stdin);
+  freopen("output.txt", "w", stdout);*/
+  int n; cin>>n;
+  int num = 0;
+  int n1 = n;
+  bool isPrime = n != 1;
+  for(int i = 2; i*i <= n1; i++) {
+    int x = 0;
+    while(n%i == 0) {isPrime = false; x++; n = n/i;}
+    int nn = 1;
+    // cout<<i<<" "<<x<<"\n";
+    while(x >= nn) {
+      x -= nn; nn++; num++;
+    }
+  }
+  if(isPrime) num++;
+  cout<<num<<"\n";
+  return 0;
+}
+```
+Question E: understood by editorial, great intuition.
