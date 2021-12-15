@@ -1,4 +1,4 @@
-# Topics I did not know earlier
+# Topics
 
 ## DP
 
@@ -14,3 +14,8 @@ Push and pull dp:
 
 [lc discuss](https://leetcode.com/discuss/general-discussion/1078072/introduction-to-topological-sort#)  
 [cp algo](https://cp-algorithms.com/graph/topological-sort.html)
+
+## Nim-game (game theory)
+[codeforces blog](https://codeforces.com/blog/entry/66040)
+[cp-algo](https://cp-algorithms.com/game_theory/sprague-grundy-nim.html)
+[question](https://atcoder.jp/contests/abc229/tasks/abc229_h)
