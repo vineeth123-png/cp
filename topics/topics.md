@@ -19,3 +19,6 @@ Push and pull dp:
 [codeforces blog](https://codeforces.com/blog/entry/66040)
 [cp-algo](https://cp-algorithms.com/game_theory/sprague-grundy-nim.html)
 [question](https://atcoder.jp/contests/abc229/tasks/abc229_h)
+
+## Cyclic Sort
+Intro to Cyclic sort - [LC Article](https://leetcode.com/discuss/study-guide/2958275/cyclic-sort-important-pattern)
