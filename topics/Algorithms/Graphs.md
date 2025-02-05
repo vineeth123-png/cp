@@ -22,3 +22,19 @@ Once the BFS traversal completes and all cells have been processed, the minimum 
 
 ### Examples
 [1368. Minimum cost to make at least one valid path in a grid](https://leetcode.com/problems/minimum-cost-to-make-at-least-one-valid-path-in-a-grid/description/?envType=daily-question&envId=2025-01-18)
+
+## Topological Sort
+
+Topological sorting is an algorithm used in directed graphs to arrange nodes such that for every directed edge from node u to node v, node u comes before v. This is a natural approach when dealing with dependencies, like in project scheduling, task ordering, or handling prerequisites.
+
+### Topological Sort using Kahn's Algorithm
+
+### Examples
+[Course Schedule IV](https://leetcode.com/problems/course-schedule-iv/editorial/?envType=daily-question&envId=2025-01-27)
+
+## Floyd-Warshall Algorithm
+
+
+## Disjoint Set Union (DSU)
+A good introduction and implementation articles in [leetcode](https://leetcode.com/explore/learn/card/graph/618/disjoint-set/3881/).  
+The above link has a list of articles, that explain Quick Union, Quick Find, and optimizations in DSU using Path Compression. Clear and concise explanations.
