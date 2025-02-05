@@ -1,4 +1,14 @@
 # Graph Algorithms
+- [Graph Algorithms](#graph-algorithms)
+  - [Resources](#resources)
+  - [DFS](#dfs)
+  - [BFS](#bfs)
+  - [0-1 BFS](#0-1-bfs)
+    - [Examples](#examples)
+  - [Topological Sort](#topological-sort)
+    - [Topological Sort using Kahn's Algorithm](#topological-sort-using-kahns-algorithm)
+    - [Examples](#examples-1)
+  - [Floyd-Warshall Algorithm](#floyd-warshall-algorithm)
 
 ## Resources
 
@@ -33,8 +43,3 @@ Topological sorting is an algorithm used in directed graphs to arrange nodes suc
 [Course Schedule IV](https://leetcode.com/problems/course-schedule-iv/editorial/?envType=daily-question&envId=2025-01-27)
 
 ## Floyd-Warshall Algorithm
-
-
-## Disjoint Set Union (DSU)
-A good introduction and implementation articles in [leetcode](https://leetcode.com/explore/learn/card/graph/618/disjoint-set/3881/).  
-The above link has a list of articles, that explain Quick Union, Quick Find, and optimizations in DSU using Path Compression. Clear and concise explanations.

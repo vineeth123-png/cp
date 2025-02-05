@@ -1,4 +1,10 @@
 # DSA Study Guide
+- [DSA Study Guide](#dsa-study-guide)
+  - [Online Articles](#online-articles)
+  - [Current Path](#current-path)
+    - [As of Jan 1, 2025](#as-of-jan-1-2025)
+      - [Goal: Reach a good understanding on all topics and start polishing basics. Need to be able to attack lc and atcoder contests after this.](#goal-reach-a-good-understanding-on-all-topics-and-start-polishing-basics-need-to-be-able-to-attack-lc-and-atcoder-contests-after-this)
+    - [Next Steps](#next-steps)
 
 ## Online Articles
 [Comprehensive LC link](https://leetcode.com/discuss/study-guide/494279/comprehensive-data-structure-and-algorithm-study-guide/2779227)

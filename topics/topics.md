@@ -1,4 +1,9 @@
 # Topics (Misc)
+- [Topics (Misc)](#topics-misc)
+  - [DP](#dp)
+  - [Topological Sort](#topological-sort)
+  - [Nim-game (game theory)](#nim-game-game-theory)
+  - [Cyclic Sort](#cyclic-sort)
 
 ## DP
 

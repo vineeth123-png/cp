@@ -1,4 +1,7 @@
 # USACO training
+- [USACO training](#usaco-training)
+  - [Section 3.1](#section-31)
+    - [PROB humble numbers](#prob-humble-numbers)
 
 ## Section 3.1
 

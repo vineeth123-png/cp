@@ -1,5 +1,10 @@
 # Dynamic Programming
+- [Dynamic Programming](#dynamic-programming)
+  - [Introduction](#introduction)
+  - [Resources](#resources)
+    - [A different way to think of subproblems](#a-different-way-to-think-of-subproblems)
 
+## Introduction
 Dynamic Programming (DP) is a method for solving complex problems by breaking them down into simpler subproblems. It is applicable when the problem can be divided into overlapping subproblems which can be solved independently. DP is often used in optimization problems where the goal is to find the best solution among many possible solutions.
 
 ## Resources
