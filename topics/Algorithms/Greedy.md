@@ -12,7 +12,7 @@
 
 
 ## Introduction
-Given a problem which as some constraints and where we have to minimize cost, all the solutions which satisfy the constraints are called feasible solutions. The set of feasible solutions which costs the minimum are called optimal solutions. Generally, there would be a single optimal solution. Also, a problem which consists of minimizing or maximizing is called an optimization problem.
+Given a problem which has some constraints and where we have to minimize cost, all the solutions which satisfy the constraints are called feasible solutions. The set of feasible solutions which costs the minimum are called optimal solutions. Generally, there would be a single optimal solution. Also, a problem which consists of minimizing or maximizing is called an optimization problem.
 
 Some strategies used to solve optimization problems are - 
 1. Greedy method
@@ -29,7 +29,9 @@ A problem would be solved in stages. Each time, we'd pickup feasible possibiliti
 4. Huffman Coding
 5. Prim & Kruskal's Algorithms
 6. Dijkstra's Algorithm.
-
+7. Dutch National Flag (DNF) Algorithm.
+8. Kadane's Algorithm
+9. Moore's Majority voting algorithm.
 
 
 ### Credits
