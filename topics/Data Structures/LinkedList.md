@@ -62,8 +62,14 @@ ListNode* reverseList(ListNode* head) {
 
 ## Tortoise and Hare Algorithm - Floyd's Cycle Algorithm
 
-### Resources
+### Resources & Good Questions
 [cp-algorithms](https://cp-algorithms.com/others/tortoise_and_hare.html) - Has algorithm.  
+[Find the intersection point of Y LL](https://leetcode.com/problems/intersection-of-two-linked-lists/description/) - [explanation](https://leetcode.com/problems/intersection-of-two-linked-lists/solutions/6624269/master-linked-list-intersection-unlock-the-two-pointer-reset-trick-to-detect-overlap/)  
+[Remove Nth node from the back of the LL](https://leetcode.com/problems/remove-nth-node-from-end-of-list/description/)  
+[Sort a LL](https://leetcode.com/problems/sort-list/)  
+[Rotate List](https://leetcode.com/problems/rotate-list/description/) - [Best Implementation](https://leetcode.com/problems/rotate-list/description/)  
+[Reverse LL in group of given size K](https://leetcode.com/problems/reverse-nodes-in-k-group/description/)  
+[Flattening of LL](https://takeuforward.org/data-structure/flattening-a-linked-list/)
 
 #### Striver's Explanation
 - [Detect a loop in LL](https://youtu.be/wiOo4DC5GGA) - Has Proof on why cycle algorithm runs in O(n) time.
@@ -71,4 +77,7 @@ ListNode* reverseList(ListNode* head) {
 - [Check loop's length in LL](https://youtu.be/I4g1qbkTPus)
 
 Striver's explanations are good, explained proofs in a simple way.
+
+## Main Points
+- When we solve linkedlist problems, we've to think how we can use slow & fast pointers (Tortoise-Hare) or how two pointers (remove Nth node from back of LL) can be used to solve the problem. We can also use recursion to solve problems here.
 
