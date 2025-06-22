@@ -69,7 +69,7 @@ ListNode* reverseList(ListNode* head) {
 [Sort a LL](https://leetcode.com/problems/sort-list/)  
 [Rotate List](https://leetcode.com/problems/rotate-list/description/) - [Best Implementation](https://leetcode.com/problems/rotate-list/description/)  
 [Reverse LL in group of given size K](https://leetcode.com/problems/reverse-nodes-in-k-group/description/)  
-[Flattening of LL](https://takeuforward.org/data-structure/flattening-a-linked-list/)
+[Flattening of LL](https://takeuforward.org/data-structure/flattening-a-linked-list/) or [Flatten a multilevel doubly linked list](https://leetcode.com/problems/flatten-a-multilevel-doubly-linked-list/description/)
 
 #### Striver's Explanation
 - [Detect a loop in LL](https://youtu.be/wiOo4DC5GGA) - Has Proof on why cycle algorithm runs in O(n) time.
