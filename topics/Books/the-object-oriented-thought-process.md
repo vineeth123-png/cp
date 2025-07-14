@@ -82,3 +82,61 @@ Start with what the system needs to do, then determine which objects are respons
 OOP isn't just about classes and inheritance — it's about roles, responsibilities, and interactions.
 
 Thinking in objects helps create more intuitive, modular, and maintainable systems.
+
+## 3. More Object-Oriented Concepts
+This chapter builds upon the basic object-oriented principles (encapsulation, inheritance, polymorphism) introduced earlier and dives deeper into key supporting concepts that reinforce object-oriented programming (OOP) design.
+
+#### **1. Abstraction**
+
+* **Definition:** Hiding complex implementation details and exposing only what is necessary to the user.
+* **Purpose:** Reduces complexity and increases reusability.
+* **Example:** You use a car's steering wheel and pedals without knowing how the engine works.
+
+#### **2. Encapsulation (Revisited)**
+
+* Reinforces how bundling data (attributes) and behavior (methods) protects the internal state of an object.
+* Uses **access modifiers** (`private`, `protected`, `public`) to control access.
+
+#### **3. Composition vs Inheritance**
+
+* **Composition:** "Has-a" relationship; objects contain other objects.
+* **Inheritance:** "Is-a" relationship; a subclass inherits from a superclass.
+* Composition is often preferred due to its **flexibility** and lower coupling.
+
+#### **4. Association, Aggregation, and Composition**
+
+* **Association:** General relationship between classes.
+* **Aggregation:** A weaker form of composition; part can exist independently.
+* **Composition:** Strong form of containment; part cannot exist without the whole.
+* These relationships model real-world connections between objects.
+
+#### **5. Dependency**
+
+* When one class uses another class temporarily.
+* Promotes **loose coupling** when managed correctly, often via interfaces or dependency injection.
+
+#### **6. Static Members**
+
+* Belong to the class rather than an instance.
+* Useful for constants and utility methods.
+* Static methods **cannot access non-static (instance) members directly**.
+
+#### **7. Class Relationships and UML Notation**
+
+* Introduces simple **UML diagrams** to represent relationships:
+
+  * Arrows for inheritance
+  * Diamonds for aggregation/composition
+  * Lines for associations
+
+#### **8. Real-World Examples**
+
+* Uses examples like employee-management systems to show how to model entities using OOP principles.
+
+---
+
+### **Key Takeaway:**
+
+This chapter emphasizes designing with relationships in mind (not just inheritance), using abstraction to reduce complexity, and understanding how objects interact (association, composition, dependency) to create maintainable, scalable systems.
+
+Would you like a visual cheat sheet for these concepts or examples in code?
