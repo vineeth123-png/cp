@@ -173,3 +173,53 @@ These problems require careful adjustment of the binary search logic to account 
 
 ### Resources for rotated series
 - Striver's explanations were good - [link1](https://www.youtube.com/watch?v=5qGrJbHhqFs&feature=youtu.be), [link2](https://www.youtube.com/watch?v=w2G2W8l__pc)
+
+## Binary Search on Answer: Koko Eating Bananas
+
+The "Koko Eating Bananas" problem is a classic example of **binary search on answer** (also called parametric search). In these problems, you are asked to find the minimum or maximum value that satisfies a certain condition, rather than searching for a specific element in an array.
+
+### Problem Statement
+
+Koko has a pile of banana heaps, and she wants to eat all bananas within `h` hours. Each hour, she can choose any heap and eat up to `k` bananas from it. If the heap has less than `k` bananas, she eats all of them. The goal is to find the minimum integer `k` such that Koko can finish all bananas within `h` hours.
+
+### Concept/Category
+
+This problem belongs to the category of **binary search on the answer**. The answer (`k`) lies within a range (from 1 to the maximum heap size). For each candidate value of `k`, you can check if Koko can finish all bananas in `h` hours. The check function is monotonic: if Koko can finish with speed `k`, she can also finish with any speed greater than `k`.
+
+### How to Solve
+
+1. **Define the search space:**  
+    The minimum possible eating speed is 1, and the maximum is the largest heap size.
+
+2. **Binary search on the speed:**  
+    For each candidate speed, calculate the total hours needed. If it is less than or equal to `h`, try a smaller speed. Otherwise, try a larger speed.
+
+3. **Implement the check function:**  
+    For each heap, the hours needed is `ceil(heap / k)`.
+
+### Example (Python)
+
+```python
+import math
+
+def min_eating_speed(piles, h):
+     left, right = 1, max(piles)
+     while left < right:
+          mid = (left + right) // 2
+          hours = sum(math.ceil(pile / mid) for pile in piles)
+          if hours <= h:
+                right = mid
+          else:
+                left = mid + 1
+     return left
+```
+
+### Other Examples in This Category
+
+- Minimum capacity to ship packages within D days
+- Allocate minimum number of pages to students
+- Find the smallest divisor given a threshold
+
+These problems use binary search to efficiently find the optimal answer within a range, leveraging the monotonicity of the check function.
+
+
