@@ -119,7 +119,9 @@ These properties are fundamental for analyzing graph structure and are often use
 
 ## Resources
 
-[cp-algorithms](https://cp-algorithms.com/graph/breadth-first-search.html)
+- [cp-algorithms](https://cp-algorithms.com/graph/breadth-first-search.html)
+- [Competitive Programming Handbook]()
+- [USACO Guide](https://usaco.guide/) - covers great resources like CP Handbook, USACO books, cp-algo...
 
 ## DFS
 
@@ -140,11 +142,138 @@ Once the BFS traversal completes and all cells have been processed, the minimum 
 ### Examples
 [1368. Minimum cost to make at least one valid path in a grid](https://leetcode.com/problems/minimum-cost-to-make-at-least-one-valid-path-in-a-grid/description/?envType=daily-question&envId=2025-01-18)
 
+
 ## Topological Sort
+Topological sort is a linear ordering of the vertices in a directed acyclic graph (DAG) such that for every directed edge \( u \rightarrow v \), vertex \( u \) comes before \( v \) in the ordering. This is essential for scheduling tasks with dependencies, resolving compilation order, and more.
 
-Topological sorting is an algorithm used in directed graphs to arrange nodes such that for every directed edge from node u to node v, node u comes before v. This is a natural approach when dealing with dependencies, like in project scheduling, task ordering, or handling prerequisites.
+### When is Topological Sort Possible?
 
-### Topological Sort using Kahn's Algorithm
+Topological sorting is only possible for DAGs. If the graph contains a cycle, no valid ordering exists.
+
+---
+
+## Algorithms for Topological Sort
+
+There are two main approaches: DFS-based and BFS-based (Kahn's Algorithm).
+
+### 1. DFS-Based Topological Sort
+
+This method uses depth-first search. The key idea is to visit all descendants of a node before the node itself. When a node finishes (all its neighbors are visited), it is added to the ordering.
+
+#### Steps:
+1. Mark all nodes as unvisited.
+2. For each unvisited node, perform DFS.
+3. After visiting all neighbors, add the node to a stack or list.
+4. Reverse the stack/list to get the topological order.
+
+#### Pseudocode
+
+```python
+def dfs_topological_sort(graph):
+    n = len(graph)
+    visited = [False] * n
+    order = []
+
+    def dfs(u):
+        visited[u] = True
+        for v in graph[u]:
+            if not visited[v]:
+                dfs(v)
+        order.append(u)
+
+    for u in range(n):
+        if not visited[u]:
+            dfs(u)
+    return order[::-1]  # reverse for correct order
+```
+
+#### Notes:
+- Detects cycles if a node is visited twice in the same DFS path (using a recursion stack).
+- Time complexity: \( O(V + E) \).
+
+---
+
+### 2. BFS-Based Topological Sort (Kahn's Algorithm)
+
+This approach uses in-degree counts and a queue. Nodes with zero in-degree (no dependencies) are processed first.
+
+#### Steps:
+1. Compute in-degree for each node.
+2. Add all nodes with zero in-degree to a queue.
+3. While the queue is not empty:
+    - Remove a node, add it to the ordering.
+    - Decrease in-degree of its neighbors.
+    - If a neighbor's in-degree becomes zero, add it to the queue.
+4. If all nodes are processed, the ordering is valid. If not, the graph has a cycle.
+
+#### Pseudocode
+
+```python
+from collections import deque
+
+def kahn_topological_sort(graph):
+    n = len(graph)
+    in_degree = [0] * n
+    for u in range(n):
+        for v in graph[u]:
+            in_degree[v] += 1
+
+    queue = deque([u for u in range(n) if in_degree[u] == 0])
+    order = []
+
+    while queue:
+        u = queue.popleft()
+        order.append(u)
+        for v in graph[u]:
+            in_degree[v] -= 1
+            if in_degree[v] == 0:
+                queue.append(v)
+
+    if len(order) == n:
+        return order
+    else:
+        return []  # cycle detected
+```
+
+#### Notes:
+- Efficient for large graphs.
+- Can be used to detect cycles (if not all nodes are processed).
+- Time complexity: \( O(V + E) \).
+
+---
+
+## Comparison
+
+| Method      | Approach | Cycle Detection | Output Order | Use Case         |
+|-------------|----------|----------------|--------------|------------------|
+| DFS         | Recursive| Yes (with stack)| Reverse postorder | When recursion is natural |
+| Kahn's (BFS)| Iterative| Yes (by count) | As processed | When explicit dependency tracking is needed |
+
+---
+
+## Applications
+
+- Task scheduling with dependencies
+- Build systems (compilation order)
+- Resolving package dependencies
+- Course prerequisite ordering
+
+---
+
+## Example
+
+Given a graph:
+```
+0 → 1
+0 → 2
+1 → 3
+2 → 3
+```
+Possible topological orders: `[0, 2, 1, 3]`, `[0, 1, 2, 3]`
+
+---
+
+Topological sort is a fundamental tool for reasoning about dependencies in directed acyclic graphs, with both DFS and BFS approaches widely used in practice.
 
 ### Examples
 [Course Schedule IV](https://leetcode.com/problems/course-schedule-iv/editorial/?envType=daily-question&envId=2025-01-27)
@@ -215,3 +344,46 @@ A graph is bipartite if its nodes can be divided into two sets such that no two 
 Solves problems involving the flow of resources through a network, such as the maximum flow problem (Ford-Fulkerson, Edmonds-Karp algorithms).
 
 ---
+
+## Good Questions
+### Word Ladder
+
+The Word Ladder problem involves transforming a start word into an end word by changing one letter at a time, with each intermediate word required to be in a given dictionary. The goal is to find the shortest transformation sequence.
+
+This problem can be modeled as a graph where each word is a node, and an edge exists between two words if they differ by exactly one letter. Breadth-First Search (BFS) is typically used to find the shortest path from the start word to the end word.
+
+#### Example
+
+[127. Word Ladder](https://leetcode.com/problems/word-ladder/)
+
+#### Approach
+
+- Build a graph where each word is connected to all words that differ by one letter.
+- Use BFS to find the shortest transformation sequence.
+
+#### Pseudocode
+
+```python
+from collections import deque
+
+def word_ladder(beginWord, endWord, wordList):
+    wordSet = set(wordList)
+    queue = deque([(beginWord, 1)])
+    while queue:
+        word, steps = queue.popleft()
+        if word == endWord:
+            return steps
+        for i in range(len(word)):
+            for c in 'abcdefghijklmnopqrstuvwxyz':
+                next_word = word[:i] + c + word[i+1:]
+                if next_word in wordSet:
+                    wordSet.remove(next_word)
+                    queue.append((next_word, steps + 1))
+    return 0
+```
+
+#### Key Concepts
+
+- Graph modeling of word transformations
+- BFS for shortest path
+- Efficient neighbor generation using character replacement
