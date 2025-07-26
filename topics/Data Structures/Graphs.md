@@ -120,7 +120,7 @@ These properties are fundamental for analyzing graph structure and are often use
 ## Resources
 
 - [cp-algorithms](https://cp-algorithms.com/graph/breadth-first-search.html)
-- [Competitive Programming Handbook]()
+- [Graphs Playlist by Striver](https://www.youtube.com/playlist?list=PLgUwDviBIf0oE3gA41TKO2H5bHpPd7fzn) - Has great videos, good explanations.
 - [USACO Guide](https://usaco.guide/) - covers great resources like CP Handbook, USACO books, cp-algo...
 
 ## DFS
@@ -310,36 +310,107 @@ def floyd_warshall(graph):
 
 ---
 
-### Dijkstra's Algorithm
+## Dijkstra's Algorithm
 
-Finds the shortest path from a single source to all other nodes in a graph with non-negative edge weights. Uses a priority queue for efficiency.
+Finds the shortest path from a single source to all other nodes in a graph with non-negative edge weights. Uses a priority queue for efficiency. 
 
-### Bellman-Ford Algorithm
+**Apporach/Intuition** - Whenever we calculate distance from source to target nodes, we always makes sure to find distances from the nearest node first in a greedy manner, and then to pickup longer distances as we go. This way, we always end up finding shortest distances, as there are no negative edges in the graph.
 
-Handles graphs with negative edge weights and can detect negative cycles. Slower than Dijkstra's but more flexible.
+### Dijkstra's Algorithm Implementations
 
-### Connected Components
+#### 1. Using `priority_queue` (heapq in Python)
+
+This is the standard and most efficient way to implement Dijkstra's algorithm. The priority queue always gives the node with the smallest current distance.
+
+```python
+import heapq
+
+def dijkstra_priority_queue(graph, source):
+    n = len(graph)
+    dist = [float('inf')] * n
+    dist[source] = 0
+    pq = [(0, source)]  # (distance, node)
+
+    while pq:
+        d, u = heapq.heappop(pq)
+        if d > dist[u]:
+            continue  # Already found a better path
+        for v, w in graph[u]:
+            if dist[v] > dist[u] + w:
+                dist[v] = dist[u] + w
+                heapq.heappush(pq, (dist[v], v))
+    return dist
+```
+
+- `graph` is an adjacency list: `graph[u] = [(v, weight), ...]`
+- Time complexity: \(O((V + E) \log V)\)
+
+---
+
+#### 2. Using `set`
+
+A set can also be used to always extract the node with the smallest distance. This is less efficient than a priority queue but sometimes used for educational purposes or in languages with efficient ordered sets.
+
+```python
+def dijkstra_set(graph, source):
+    import bisect
+
+    n = len(graph)
+    dist = [float('inf')] * n
+    dist[source] = 0
+    s = set()
+    s.add((0, source))
+
+    while s:
+        d, u = min(s)
+        s.remove((d, u))
+        for v, w in graph[u]:
+            if dist[v] > dist[u] + w:
+                if (dist[v], v) in s:
+                    s.remove((dist[v], v))
+                dist[v] = dist[u] + w
+                s.add((dist[v], v))
+    return dist
+```
+
+- `graph` is an adjacency list: `graph[u] = [(v, weight), ...]`
+- Time complexity: \(O(V^2)\) (since `min(s)` is \(O(V)\))
+
+---
+
+**Note:**  
+- Both implementations assume 0-based node indexing.
+- Use the priority queue version for performance; the set version is mainly for conceptual clarity or when using languages with efficient ordered sets (like C++'s `std::set`).
+
+
+## Bellman-Ford Algorithm
+
+Handles graphs with negative edge weights and can detect negative cycles. Slower than Dijkstra's but more flexible. This algorithm gives us shortest distances from a source to all the nodes, and also detects if there's a negative loop in the graph, something which dijkstra's algorithm can't do. (If we apply dijkstra's algorithm to a graph which has negative weights, it would fall in an infinite loop)
+
+**Striver's Video on Bellman-Ford** - [Bellman-Ford](https://www.youtube.com/watch?v=0vVofAhAYjc&list=PLgUwDviBIf0oE3gA41TKO2H5bHpPd7fzn&index=41)
+
+## Connected Components
 
 Identifies all connected subgraphs in an undirected graph. Useful for clustering and network analysis.
 
-### Bridges and Articulation Points
+## Bridges and Articulation Points
 
 - **Bridges**: Edges whose removal increases the number of connected components.
 - **Articulation Points**: Nodes whose removal increases the number of connected components.
 
-### Strongly Connected Components (SCC)
+## Strongly Connected Components (SCC)
 
 In directed graphs, SCCs are maximal sets of nodes where each node is reachable from every other node in the same set. Kosaraju's and Tarjan's algorithms are commonly used.
 
-### Minimum Spanning Tree (MST)
+## Minimum Spanning Tree (MST)
 
 Finds a subset of edges that connects all vertices with the minimum total edge weight. Algorithms: Kruskal's and Prim's.
 
-### Bipartite Graphs and Matching
+## Bipartite Graphs and Matching
 
 A graph is bipartite if its nodes can be divided into two sets such that no two nodes within the same set are adjacent. Matching algorithms (like Hopcroft-Karp) are used for maximum matching.
 
-### Network Flow
+## Network Flow
 
 Solves problems involving the flow of resources through a network, such as the maximum flow problem (Ford-Fulkerson, Edmonds-Karp algorithms).
 

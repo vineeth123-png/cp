@@ -34,5 +34,36 @@ A problem would be solved in stages. Each time, we'd pickup feasible possibiliti
 9. Moore's Majority voting algorithm.
 
 
+## Kadane's Algorithm
+Kadane's Algorithm is a classic greedy approach used to solve the **Maximum Subarray Sum** problem efficiently. The goal is to find the contiguous subarray within a one-dimensional array of numbers that has the largest sum.
+
+### How Kadane's Algorithm Works
+- Initialize two variables: `max_so_far` (the answer) and `max_ending_here` (current subarray sum), both set to the first element.
+- Iterate through the array from the second element:
+    - For each element, update `max_ending_here` as the maximum of the current element and `max_ending_here + current element`.
+    - Update `max_so_far` if `max_ending_here` is greater than `max_so_far`.
+- At the end, `max_so_far` contains the maximum subarray sum.
+
+### Nuances and Interview Tips
+- **Negative Numbers:** Kadane's algorithm works even if the array contains all negative numbers. In such cases, it returns the largest (least negative) element.
+- **Subarray Tracking:** To return the actual subarray, keep track of start and end indices whenever `max_ending_here` is reset.
+- **Edge Cases:** Be careful with arrays of length 0 or with all negative numbers.
+- **Time Complexity:** Kadane's algorithm runs in O(n) time and O(1) space.
+- **Variants:** Sometimes, you may be asked for the minimum subarray sum (just invert the logic), or to solve for circular arrays (handle wrap-around by combining Kadane's with total sum minus minimum subarray sum).
+- **Common Mistakes:** Forgetting to reset the subarray start index when `max_ending_here` is set to the current element.
+
+### Pseudocode
+```python
+def kadane(arr):
+        max_so_far = arr[0]
+        max_ending_here = arr[0]
+        for i in range(1, len(arr)):
+                max_ending_here = max(arr[i], max_ending_here + arr[i])
+                max_so_far = max(max_so_far, max_ending_here)
+        return max_so_far
+```
+
+Kadane's algorithm is frequently asked in interviews due to its elegant greedy approach and practical applications in dynamic programming and array manipulation problems.
+
 ### Credits
 Content taken from Abdul Bari's Algorithms [Playlist](https://www.youtube.com/watch?v=ARvQcqJ_-NY&list=PLDN4rrl48XKpZkf03iYFl-O29szjTrs_O&index=39)
