@@ -33,6 +33,15 @@ A problem would be solved in stages. Each time, we'd pickup feasible possibiliti
 8. Kadane's Algorithm
 9. Moore's Majority voting algorithm.
 
+## Good Questions
+- Jump Game Series - [Link](https://leetcode.com/problems/jump-game/), [Link](https://leetcode.com/problems/jump-game-ii/)
+- Gas Station Series - [Link](https://leetcode.com/problems/gas-station/)
+- Interval Merging series - [Link](https://leetcode.com/problems/merge-intervals/), [Link](https://leetcode.com/problems/insert-interval/), [Link](https://leetcode.com/problems/non-overlapping-intervals/)
+- Mininum number of platforms required - [Link](https://takeuforward.org/data-structure/minimum-number-of-platforms-required-for-a-railway/)
+
+## Harder Questions
+- Job Sequencing Series - [Link](https://leetcode.com/problems/maximum-profit-in-job-scheduling/), [Link](https://takeuforward.org/data-structure/job-sequencing-problem/)
+- LRU Cache - [Link](https://leetcode.com/problems/lru-cache/)
 
 ## Kadane's Algorithm
 Kadane's Algorithm is a classic greedy approach used to solve the **Maximum Subarray Sum** problem efficiently. The goal is to find the contiguous subarray within a one-dimensional array of numbers that has the largest sum.
