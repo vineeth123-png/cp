@@ -406,6 +406,13 @@ In directed graphs, SCCs are maximal sets of nodes where each node is reachable 
 
 Finds a subset of edges that connects all vertices with the minimum total edge weight. Algorithms: Kruskal's and Prim's.
 
+Given a graph consisting of N nodes and M edges, a spanning tree is a tree which has all the N nodes of the graph, but only N-1 edges connecting all the nodes. All the nodes are reachable from each other, using the N-1 edges.
+A spanning tree whose sum of its edges would be the minimum of all the spanning trees possible in a graph is the minimum spanning tree (MST). There can be more than one MST given a graph.
+
+### Prim's Algorithm
+
+### Kruskal's Algorithm
+
 ## Bipartite Graphs and Matching
 
 A graph is bipartite if its nodes can be divided into two sets such that no two nodes within the same set are adjacent. Matching algorithms (like Hopcroft-Karp) are used for maximum matching.

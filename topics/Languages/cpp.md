@@ -28,6 +28,9 @@ C++ is used in system/software development, game engines, real-time simulations,
 - [ISO C++](https://isocpp.org/)
 - "The C++ Programming Language" by Bjarne Stroustrup
 
+## Fundamental Data 
+![alt text](image.png)
+
 ## Standard Template Library (STL)
 
 The Standard Template Library (STL) is a powerful set of C++ template classes that provide common data structures and algorithms. STL includes containers (like `vector`, `set`, `map`), iterators, algorithms (such as `sort`, `find`), and utility components.
