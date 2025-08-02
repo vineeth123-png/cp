@@ -1,11 +1,4 @@
-# Stack
-- [Stack](#stack)
-  - [Introduction](#introduction)
-  - [Implementation](#implementation)
-  - [Resources \& Problem list](#resources--problem-list)
-  - [Monotonic Stack](#monotonic-stack)
-    - [Rods:](#rods)
-
+# Stacks and Queues
 ## Introduction
 LIFO principle's brand ambassador
 
@@ -95,6 +88,29 @@ class Stack:
 ## Resources & Problem list
 
 Striver's Queue and Stack [Playlist](https://www.youtube.com/watch?v=NdDIaH91P0g&list=PLgUwDviBIf0pOd5zvVVSzgpo6BaCpHT9c&index=4) - Has Good Problems
+
+
+
+## Infix, Prefix and Postfix notations
+Infix, prefix, and postfix are different ways to write arithmetic expressions:
+
+- **Infix Notation:** Operators are written between operands. Example: `A + B`. This is the standard notation used in mathematics and programming. Requires parentheses and operator precedence rules for evaluation.
+
+- **Prefix Notation (Polish Notation):** Operators precede their operands. Example: `+ A B`. No need for parentheses; the order of operations is determined by the position of operators.
+
+- **Postfix Notation (Reverse Polish Notation):** Operators follow their operands. Example: `A B +`. Also does not require parentheses; evaluation is straightforward using a stack.
+
+**Conversion and Evaluation:**
+- Stacks are commonly used to convert between these notations and to evaluate postfix expressions efficiently.
+- Postfix is popular in compilers and calculators due to its simplicity in evaluation.
+
+**Example:**
+- Infix: `(A + B) * C`
+- Prefix: `* + A B C`
+- Postfix: `A B + C *`
+
+### Resources
+- [Striver's explanation](https://www.youtube.com/watch?v=4pIc9UBHJtk) - Shows to convert infix to postfix
 
 ## Monotonic Stack
 Guides:
