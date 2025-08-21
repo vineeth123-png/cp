@@ -25,8 +25,8 @@ So while DSU itself isn't a graph algorithm, it plays a crucial role as a suppor
 4. When we use Union by rank implementation and find parents using path compression, find and union operations take O(1) on average (References - Inverse Ackermann function, [link](https://www.cs.tau.ac.il/~michas/ufind.pdf))
 
 ## Resources
-A good introduction and implementation articles in [leetcode](https://leetcode.com/explore/learn/card/graph/618/disjoint-set/3881/).  
-The above link has a list of articles, that explain Quick Union, Quick Find, and optimizations in DSU using Path Compression. Clear and concise explanations.
+- A good introduction and implementation articles in [leetcode](https://leetcode.com/explore/learn/card/graph/618/disjoint-set/3881/). The above link has a list of articles, that explain Quick Union, Quick Find, and optimizations in DSU using Path Compression. Clear and concise explanations.
+- Striver's explanation - [Graphs Playlist - DSU](https://www.youtube.com/watch?v=aBxjDBC4M1U)
 
 ## Code
 ```

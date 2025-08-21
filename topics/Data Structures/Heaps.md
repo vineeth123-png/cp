@@ -1,5 +1,8 @@
 # Heaps
 
+## Resources
+- CSAcademy - [link](https://csacademy.com/lesson/heaps)
+
 A **heap** is a complete binary tree that satisfies the heap property. In a **max heap**, every parent node is greater than or equal to its children, while in a **min heap**, every parent node is less than or equal to its children.
 
 ## Heap vs Binary Search Tree (BST)
@@ -153,3 +156,171 @@ struct compare{
         }
     };
 ```
+
+## Check if Array is Min Heap
+
+To verify if an array represents a valid min heap, we need to check that every parent node is smaller than or equal to its children.
+
+### Algorithm
+
+```cpp
+bool isMinHeap(vector<int>& arr) {
+    int n = arr.size();
+    
+    // Check heap property for all non-leaf nodes
+    for (int i = 0; i <= (n - 2) / 2; i++) {
+        int left = 2 * i + 1;
+        int right = 2 * i + 2;
+        
+        // Check left child
+        if (left < n && arr[i] > arr[left])
+            return false;
+            
+        // Check right child
+        if (right < n && arr[i] > arr[right])
+            return false;
+    }
+    
+    return true;
+}
+```
+
+### Key Points
+- Only check non-leaf nodes: indices `0` to `(n-2)/2`
+- For each parent at index `i`, check children at `2*i+1` and `2*i+2`
+- **Time Complexity**: O(n)
+- **Space Complexity**: O(1)
+
+### Example Usage
+
+```cpp
+vector<int> minHeap = {1, 3, 6, 5, 2, 8};
+vector<int> notHeap = {1, 2, 3, 4, 5, 6};
+
+cout << isMinHeap(minHeap);  // true
+cout << isMinHeap(notHeap);  // false
+```
+
+## Converting Min Heap to Max Heap
+
+There are several approaches to convert a min heap to a max heap, each with different time and space complexities.
+
+### Method 1: Extract All Elements and Rebuild
+
+Extract all elements from min heap and insert them into a new max heap.
+
+```cpp
+vector<int> convertMinToMaxHeap_Method1(priority_queue<int, vector<int>, greater<int>>& minHeap) {
+    vector<int> maxHeap;
+    
+    // Extract all elements
+    while (!minHeap.empty()) {
+        maxHeap.push_back(minHeap.top());
+        minHeap.pop();
+    }
+    
+    // Build max heap from extracted elements
+    make_heap(maxHeap.begin(), maxHeap.end());
+    return maxHeap;
+}
+```
+
+**Time Complexity**: O(n log n) - n extractions each taking O(log n)  
+**Space Complexity**: O(n) - additional array for max heap
+
+### Method 2: In-Place Conversion Using Heapify
+
+Convert the underlying array representation directly by applying max heapify.
+
+```cpp
+void convertToMaxHeap(vector<int>& arr) {
+    int n = arr.size();
+    
+    // Build max heap from bottom up
+    for (int i = (n - 2) / 2; i >= 0; i--) {
+        maxHeapify(arr, n, i);
+    }
+}
+
+void maxHeapify(vector<int>& arr, int n, int i) {
+    int largest = i;
+    int left = 2 * i + 1;
+    int right = 2 * i + 2;
+    
+    if (left < n && arr[left] > arr[largest])
+        largest = left;
+    if (right < n && arr[right] > arr[largest])
+        largest = right;
+        
+    if (largest != i) {
+        swap(arr[i], arr[largest]);
+        maxHeapify(arr, n, largest);
+    }
+}
+```
+
+**Time Complexity**: O(n) - optimal heapify operation  
+**Space Complexity**: O(1) - in-place conversion
+
+### Method 3: Negate Values (Min Heap as Max Heap)
+
+Use mathematical trick by negating all values to simulate max heap behavior with min heap structure.
+
+```cpp
+class NegatedMaxHeap {
+private:
+    priority_queue<int, vector<int>, greater<int>> minHeap;
+    
+public:
+    void push(int val) {
+        minHeap.push(-val);  // Negate before insertion
+    }
+    
+    int top() {
+        return -minHeap.top();  // Negate to get original value
+    }
+    
+    void pop() {
+        minHeap.pop();
+    }
+    
+    bool empty() {
+        return minHeap.empty();
+    }
+};
+```
+
+**Time Complexity**: O(log n) per operation  
+**Space Complexity**: O(1) additional space  
+**Note**: Only works with numeric types that support negation
+
+### Method 4: Copy to STL Priority Queue
+
+Simply copy elements to a max heap priority queue.
+
+```cpp
+priority_queue<int> convertToSTLMaxHeap(vector<int>& minHeapArray) {
+    priority_queue<int> maxHeap;
+    
+    for (int val : minHeapArray) {
+        maxHeap.push(val);
+    }
+    
+    return maxHeap;
+}
+```
+
+**Time Complexity**: O(n log n) - n insertions each O(log n)  
+**Space Complexity**: O(n) - new priority queue
+
+### Comparison Summary
+
+| Method | Time Complexity | Space Complexity | In-Place | Best Use Case |
+|--------|----------------|------------------|----------|---------------|
+| Extract & Rebuild | O(n log n) | O(n) | No | When you need both heaps |
+| In-Place Heapify | O(n) | O(1) | Yes | Most efficient conversion |
+| Negate Values | O(log n) per op | O(1) | Yes | When structure must remain same |
+| STL Copy | O(n log n) | O(n) | No | When using STL containers |
+
+### Recommendation
+**Method 2 (In-Place Heapify)** is generally the most efficient approach for one-time conversion, offering O(n) time complexity with constant extra space.
