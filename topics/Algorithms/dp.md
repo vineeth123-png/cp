@@ -37,3 +37,6 @@ Example questions -
 . [Subset Sum Equals Target](https://www.youtube.com/watch?v=fWX9xDmIzRI&list=PLgUwDviBIf0qUlt5H_kiKYaNSqJ81PMMY&index=15) - Trivial dp's space complexity is O(n*target), you can bring it down to O(target)
 
 . [LCS](https://www.youtube.com/watch?v=NPZn9jBrX8U) - Checkout space optimized approach
+
+## Articles worth checking
+- [LC Article on buy and sell stock series](https://leetcode.com/problems/best-time-to-buy-and-sell-stock-with-cooldown/solutions/75924/most-consistent-ways-of-dealing-with-the-series-of-stock-problems/)
